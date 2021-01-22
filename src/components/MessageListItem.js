@@ -7,11 +7,11 @@ import {
 import { Message } from '../data/messages';
 import './MessageListItem.css';
 
-interface MessageListItemProps {
-  message: Message;
-}
+// interface MessageListItemProps {
+//   message: Message;
+// }
 
-const MessageListItem: React.FC<MessageListItemProps> = ({ message }) => {
+const MessageListItem = ({ message }) => {
   return (
     <IonItem routerLink={`/message/${message.id}`} detail={false}>
       <div slot="start" className="dot dot-unread"></div>

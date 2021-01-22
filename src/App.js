@@ -4,6 +4,7 @@ import { IonApp, IonRouterOutlet } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 import Home from './pages/Home';
 import ViewMessage from './pages/ViewMessage';
+import Main from './page/Main'
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -24,13 +25,14 @@ import '@ionic/react/css/display.css';
 /* Theme variables */
 import './theme/variables.css';
 
-const App: React.FC = () => (
+const App = () => (
   <IonApp>
     <IonReactRouter>
       <IonRouterOutlet>
+        <Router path="/main" component={Main}/>
         <Route path="/home" component={Home} exact={true} />
         <Route path="/message/:id" component={ViewMessage} exact={true} />
-        <Route exact path="/" render={() => <Redirect to="/home" />} />
+        <Route exact path="/" render={() => <Redirect to="/main" />} />
       </IonRouterOutlet>
     </IonReactRouter>
   </IonApp>

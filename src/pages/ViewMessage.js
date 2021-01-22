@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Message, getMessage } from '../data/messages';
+import  getMessage  from '../data/messages';
 import {
   IonBackButton,
   IonButtons,
@@ -17,15 +17,15 @@ import { personCircle } from 'ionicons/icons';
 import { RouteComponentProps } from 'react-router';
 import './ViewMessage.css';
 
-interface ViewMessageProps extends RouteComponentProps<{ id: string; }> { }
+// interface ViewMessageProps extends RouteComponentProps<{ id: string; }> { }
 
-const ViewMessage: React.FC<ViewMessageProps> = ({ match }) => {
+const ViewMessage = ({ match }) => {
 
-  const [message, setMessage] = useState<Message>();
+  const [message, setMessage] = useState();
 
   useIonViewWillEnter(() => {
-    const msg = getMessage(parseInt(match.params.id, 10));
-    setMessage(msg);
+    // const msg = getMessage(parseInt(match.params.id, 10));
+    setMessage(getMessage );
   });
 
   return (
