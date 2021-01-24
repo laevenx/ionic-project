@@ -4,7 +4,8 @@ import { IonApp, IonRouterOutlet } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 import Home from './pages/Home';
 import ViewMessage from './pages/ViewMessage';
-import Main from './page/Main'
+import Main from './pages/Main'
+import Splash from './pages/Splash'
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -29,10 +30,11 @@ const App = () => (
   <IonApp>
     <IonReactRouter>
       <IonRouterOutlet>
-        <Router path="/main" component={Main}/>
+        <Route path="/splash" component={Splash}/>
+        <Route path="/main" component={Main}/>
         <Route path="/home" component={Home} exact={true} />
         <Route path="/message/:id" component={ViewMessage} exact={true} />
-        <Route exact path="/" render={() => <Redirect to="/main" />} />
+        <Route exact path="/" render={() => <Redirect to="/splash" />} />
       </IonRouterOutlet>
     </IonReactRouter>
   </IonApp>

@@ -1,39 +1,41 @@
-import React, { useState } from 'react';
-import firebase from "firebase/app";
-import "firebase/auth";
-import "firebase/firestore";
-import {
-  IonContent,
-  IonHeader,
-  IonList,
-  IonPage,
-  IonRefresher,
-  IonRefresherContent,
-  IonTitle,
-  IonToolbar,
-  useIonViewWillEnter
-} from '@ionic/react';
-import firebaseConfig from '../data/firebaseConfig'
+import React, { useState } from "react";
+
+import { IonPage, IonButton } from "@ionic/react";
+
+import Login from "../components/Login";
+import Register from "../components/Register";
 
 const Main = () => {
-    firebase.initializeApp(firebaseConfig);
-    const [email,setEmail] = useState('')
-    const [password,setPassword] = useState('')
-    const [error, setError] = useState(null);
+  const [mode, setMode] = useState("login");
+  const [modeName, setModeName] = useState("Register");
 
-    function login (){
-
+  function changeMode() {
+    if (mode === "login") {
+      setMode("register");
+      setModeName("Login");
+    } else {
+      setMode("login");
+      setModeName("Register");
     }
+  }
 
-    function register(){
+  function complete() {
+    setMode("login");
+    setModeName("Register");
+  }
 
-    }
-
-    return (
-    <>
-
-    </>
-    )
-}
+  return (
+    <IonPage>
+      {mode === "login" ? <Login /> : <Register complete={complete} />}
+      <IonButton
+        onClick={() => {
+          changeMode();
+        }}
+      >
+        {modeName}
+      </IonButton>
+    </IonPage>
+  );
+};
 
 export default Main;
