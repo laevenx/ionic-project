@@ -23,7 +23,7 @@ const Login = () => {
   const history = useHistory()
 
     function login() {
-        console.log(email)
+        
         firebase
           .auth()
           .signInWithEmailAndPassword(email, password)

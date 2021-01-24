@@ -11,7 +11,7 @@ import {
   IonItemGroup,
   
 } from "@ionic/react";
-import { useHistory } from "react-router-dom";
+
 import { arrowForwardSharp } from 'ionicons/icons';
 
 
@@ -21,10 +21,10 @@ const Register = (props) => {
   const [password, setPassword] = useState("");
   const [repeatPass, setRepeatPass] = useState("");
   const [error, setError] = useState(null);
-  const history = useHistory()
+ 
 
   function register() {
-    console.log(email, password)
+    
     if (password == repeatPass) {
       firebase
         .auth()
