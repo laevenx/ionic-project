@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 
 import { CreateAnimation } from "@ionic/react";
-import './Splash.css'
-// import { trashOutline } from "ionicons/icons";
+import './Splash.css';
 import { useHistory } from "react-router";
 
 const Splash = () => {
